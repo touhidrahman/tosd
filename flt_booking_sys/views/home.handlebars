@@ -1,0 +1,137 @@
+<div class="container">
+  {{#if messages.success}}
+  <div class="text-success">
+    {{#each messages.success}}
+    <div>{{msg}}</div>
+    {{/each}}
+  </div>
+  {{/if}} {{#if messages.error}}
+  <div class="text-danger">
+    {{#each messages.error}}
+    <div>{{msg}}</div>
+    {{/each}}
+  </div>
+  {{/if}} {{#if messages.info}}
+  <div class="text-info">
+    {{#each messages.info}}
+    <div>{{msg}}</div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+    <h1><b>Flight</b> Search</h1>
+    <form id="searchForm" >
+
+    <!-- row 1 -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-6" style="text-align:right">
+                    <input type="radio" name="TT" id="TT_RT" value="RT" checked />
+                    <label for="TT_RT" class="selected" title="Select If Round Trip" alt="Round Trip">ROUND</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="radio" name="TT" id="TT_OW" value="OW" />
+                    <label for="TT_OW" title="Select If One Way Trip" alt="One Way Trip">ONE WAY</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- row 2 -->
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="from-part">
+                <div class="styled-select">
+                    <select name="DC" title="Select Departing Airport" alt="From">
+                        <option value="" selected>FROM</option>
+                        <option value="FRA">Frankfurt</option>
+                        <option value="MUC">Munich</option>
+                        <option value="DUS">Düsseldorf</option>
+                        <option value="TXL">Berlin</option>
+                        <option value="HAM">Hamburg</option>
+                        <option value="STR">Stuttgart</option>
+                        <option value="CGN">Cologne</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="to-part">
+                <div class="styled-select">
+                    <select name="AC" title="Select Destination Airport" alt="To">
+                        <option value="" selected>TO</option>
+                        <option value="FRA">Frankfurt</option>
+                        <option value="MUC">Munich</option>
+                        <option value="DUS">Düsseldorf</option>
+                        <option value="TXL">Berlin</option>
+                        <option value="HAM">Hamburg</option>
+                        <option value="STR">Stuttgart</option>
+                        <option value="CGN">Cologne</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- date row -->
+    <div class="row">
+        <div class="col-xs-6">
+            <input type="text" name="from-date" id="from-date" class="form-control" placeholder="DEPARTING DATE (YYYY-MM-DD)" title="Select Departing Date" alt="Departing Date">
+        </div>
+        <div class="col-xs-6">
+            <input type="text" name="to-date" id="to-date" class="form-control" placeholder="RETURNING DATE (YYYY-MM-DD)" title="Select Returning Date" alt="Returning Date">
+        </div>
+    </div>
+    <br>
+    <!-- row pax  -->
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="styled-select no-icon">
+                <select name="PA" title="Select Number of Adults" alt="Number of Adults">
+												<option value="">ADULT (12+ YRS)</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+            </div>
+        </div>
+
+        <div class="col-xs-4">
+            <div class="styled-select no-icon">
+                <select name="PC" title="Select Number of Children" alt="Number of Children">
+												<option value="">CHILD (2-12 YRS)</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+											</select>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="styled-select no-icon">
+                <select name="PI" title="Select Number of Infants" alt="Number of Infants">
+												<option value="">INFANT (0-2 YRS)</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+											</select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <input type="submit" value="SEARCH" class="btn btn-block btn-danger">
+        </div>
+    </div>
+</form>
+
+</div>
