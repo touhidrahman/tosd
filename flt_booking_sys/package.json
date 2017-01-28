@@ -5,7 +5,8 @@
   "description": "Test Oriented Software Development Final Project",
   "scripts": {
     "start": "node server.js",
-    "continue": "nodemon server.js"
+    "continue": "nodemon server.js",
+    "seed": "node seeder.js"
   },
   "dependencies": {
     "body-parser": "^1.15.1",
@@ -18,6 +19,7 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.2.1",
     "express-validator": "^2.20.4",
+    "handlebars-dateformat": "^1.0.1",
     "knex": "^0.10.0",
     "method-override": "^2.3.5",
     "morgan": "^1.7.0",

@@ -30,7 +30,8 @@ var hbs = exphbs.create({
     },
     toJSON : function(object) {
       return JSON.stringify(object);
-    }
+    },
+    dateFormat : require('handlebars-dateformat')
   }
 });
 
@@ -49,7 +50,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.get('/', HomeController.index);
-app.get('/seed', HomeController.seedGet);
+app.get('/search', HomeController.getFlights);
 
 
 // Production error handler

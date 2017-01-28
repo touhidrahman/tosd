@@ -1,0 +1,63 @@
+<div class="container">
+  {{#if messages.success}}
+  <div class="text-success">
+    {{#each messages.success}}
+    <div>{{msg}}</div>
+    {{/each}}
+  </div>
+  {{/if}} {{#if messages.error}}
+  <div class="text-danger">
+    {{#each messages.error}}
+    <div>{{msg}}</div>
+    {{/each}}
+  </div>
+  {{/if}} {{#if messages.info}}
+  <div class="text-info">
+    {{#each messages.info}}
+    <div>{{msg}}</div>
+    {{/each}}
+  </div>
+  {{/if}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>First Travel</h3>
+      <table class="table table-responsive">
+        {{#each data.rowsXtoY }}
+        <tr>
+          <td>{{from}}</td>
+          <td>{{to}}</td>
+          <td>{{dateFormat date "YYYY-MM-DD"}}</td>
+          <td>{{booked}}</td>
+          <td>
+            <form action="/book" method="POST" id="bookForm">
+              <input type="hidden" name="id" value="{{id}}" />
+              <input type="hidden" name="pax" value="{{PAX}}" />
+              <input type="submit" class="btn btn-default" value="Book Flight" />
+            </form>
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+    <div class="col-sm-12">
+      <h3>Return Travel</h3>
+      <table class="table table-responsive">
+        {{#each data.rowsYtoX }}
+        <tr>
+          <td>{{from}}</td>
+          <td>{{to}}</td>
+          <td>{{dateFormat date "YYYY-MM-DD"}}</td>
+          <td>{{booked}}</td>
+          <td>
+            <form action="/book" method="POST" id="bookForm">
+              <input type="hidden" name="id" value="{{id}}" />
+              <input type="hidden" name="pax" value="{{PAX}}" />
+              <input type="submit" class="btn btn-default" value="Book Flight" />
+            </form>
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+</div>
