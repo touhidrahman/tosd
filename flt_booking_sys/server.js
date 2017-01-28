@@ -51,6 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.get('/', HomeController.index);
 app.get('/search', HomeController.getFlights);
+app.post('/book', HomeController.postBookFlight);
 
 
 // Production error handler

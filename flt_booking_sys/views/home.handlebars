@@ -2,23 +2,31 @@
   {{#if messages.success}}
   <div class="text-success">
     {{#each messages.success}}
-    <div>{{msg}}</div>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>{{msg}}</strong>
+    </div>
     {{/each}}
   </div>
   {{/if}} {{#if messages.error}}
   <div class="text-danger">
     {{#each messages.error}}
-    <div>{{msg}}</div>
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>{{msg}}</strong>
+    </div>
     {{/each}}
   </div>
   {{/if}} {{#if messages.info}}
   <div class="text-info">
     {{#each messages.info}}
-    <div>{{msg}}</div>
+    <div class="alert alert-info">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>{{msg}}</strong>
+    </div>
     {{/each}}
   </div>
   {{/if}}
-
     <h1><b>Flight</b> Search</h1>
     <form id="searchForm" method="GET" action="search">
 
