@@ -31,6 +31,13 @@
     <div class="col-sm-12">
       <h3>First Travel</h3>
       <table class="table table-responsive">
+        <tr>
+          <td>From</td>
+          <td>To</td>
+          <td>Date</td>
+          <td>Booked</td>
+          <td></td>
+        </tr>
         {{#each data.rowsXtoY }}
         <tr>
           <td>{{from}}</td>
@@ -38,19 +45,33 @@
           <td>{{dateFormat date "YYYY-MM-DD"}}</td>
           <td>{{booked}}</td>
           <td>
-            <form action="/book" method="POST" id="bookForm">
+            <form action="/book" method="POST" id="firstBookForm">
               <input type="hidden" name="id" value="{{id}}" />
               <input type="hidden" name="pax" value="{{../data.PAX}}" />
-              <input type="submit" class="btn btn-default" value="Book Flight" />
+              <input type="submit" class="btn btn-success" id="book-first" value="Book Flight" />
             </form>
           </td>
         </tr>
         {{/each}}
       </table>
+
+      <div class="alert alert-success invisible" id="statusFirst">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Reservation confirmed!</strong> <a href="/travel-details/">Click here to display the itenarary</a>
+      </div>
+
     </div>
+    {{#if data.rowsYtoX}}
     <div class="col-sm-12">
       <h3>Return Travel</h3>
       <table class="table table-responsive">
+        <tr>
+          <td>From</td>
+          <td>To</td>
+          <td>Date</td>
+          <td>Booked</td>
+          <td></td>
+        </tr>
         {{#each data.rowsYtoX }}
         <tr>
           <td>{{from}}</td>
@@ -58,15 +79,20 @@
           <td>{{dateFormat date "YYYY-MM-DD"}}</td>
           <td>{{booked}}</td>
           <td>
-            <form action="/book" method="POST" id="bookForm">
+            <form action="/book" method="POST" id="returnBookForm">
               <input type="hidden" name="id" value="{{id}}" />
               <input type="hidden" name="pax" value="{{../data.PAX}}" />
-              <input type="submit" class="btn btn-default" value="Book Flight" />
+              <input type="submit" class="btn btn-danger" id="book-return" value="Book Flight" />
             </form>
           </td>
         </tr>
         {{/each}}
       </table>
+      <div class="alert alert-success invisible" id="statusReturn">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Reservation confirmed!</strong> <a href="/travel-details/">Click here to display the itenarary</a>
+      </div>
     </div>
+    {{/if}}
   </div>
 </div>

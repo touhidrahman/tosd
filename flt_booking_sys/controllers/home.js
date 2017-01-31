@@ -55,41 +55,6 @@ exports.getFlights = function (req, res) {
 }
 
 /**
- * PUT /tax/:id
- */
-exports.taxPut = function (req, res) {
-  let amount = Number(req.body.amount)
-  let tax = Number(req.body.tax)
-  var currency = req.body.currency
-  var result = amount + amount * tax / 100
-  conn.query('UPDATE taxes SET amount=?, tax=?, result=?, currency=? WHERE id = ?', [amount, tax, result, currency, req.params.id],
-    function (err, rows) {
-      if (err) throw err
-
-      res.render('json', {
-        layout: false,
-        data: {
-          'msg': 'Record ' + req.params.id + ' Updated'
-        }
-      })
-    })
-}
-
-/**
- * DELETE /tax/:id
- */
-exports.taxDelete = function (req, res) {
-  conn.query('DELETE FROM taxes WHERE id = ?', [req.params.id],
-    function (err, rows) {
-      if (err) throw err
-
-      res.status(200).json({
-        'msg': 'ID: ' + req.params.id + ' Deleted'
-      })
-    })
-}
-
-/**
  * POST /book
  */
 exports.postBookFlight = function (req, res) {
@@ -111,12 +76,57 @@ exports.postBookFlight = function (req, res) {
     created: df(new Date(), 'yyyy-mm-dd HH:MM:ss')
   }
 
-  conn.query('UPDATE flights SET `booked` = ? WHERE `id` = ?', [pax, id], function (err, row) {
+  conn.query('UPDATE flights SET `booked` = `booked` + ? WHERE `id` = ?', [pax, id], function (err, row) {
     if (err) throw err
     conn.query("INSERT INTO reservations SET ?", record, function(err, result){
       if (err) throw err
-      req.flash('success', {msg: "Flight booked!"})
-      return res.redirect('/')
+      // req.flash('success', {msg: "Flight booked!"})
+      return res.status(200).json({msg: "Flight booked!", reservationId:result.insertId })
     })
   })
 }
+
+
+/**
+ * GET /travel-details
+ */
+exports.getTravelDetails = function (req, res) {
+
+}
+
+
+
+/**
+ * PUT /tax/:id
+ */
+// exports.taxPut = function (req, res) {
+//   let amount = Number(req.body.amount)
+//   let tax = Number(req.body.tax)
+//   var currency = req.body.currency
+//   var result = amount + amount * tax / 100
+//   conn.query('UPDATE taxes SET amount=?, tax=?, result=?, currency=? WHERE id = ?', [amount, tax, result, currency, req.params.id],
+//     function (err, rows) {
+//       if (err) throw err
+
+//       res.render('json', {
+//         layout: false,
+//         data: {
+//           'msg': 'Record ' + req.params.id + ' Updated'
+//         }
+//       })
+//     })
+// }
+
+/**
+ * DELETE /tax/:id
+ */
+// exports.taxDelete = function (req, res) {
+//   conn.query('DELETE FROM taxes WHERE id = ?', [req.params.id],
+//     function (err, rows) {
+//       if (err) throw err
+
+//       res.status(200).json({
+//         'msg': 'ID: ' + req.params.id + ' Deleted'
+//       })
+//     })
+// }
