@@ -13,14 +13,14 @@ exports.index = function (req, res) {
  * GET /search?DC=val&AC=val&DD=val&RD=val&PA=val&PC=val&PI=val 
  */
 exports.getFlights = function (req, res) {
-  let DC = req.query.DC
-  let AC = req.query.AC
-  let DD = req.query.DD
-  let RD = req.query.RD
-  let TT = req.query.TT
-  let PA = Number(req.query.PA)
-  let PC = Number(req.query.PC)
-  let PI = Number(req.query.PI)
+  let DC = req.query.DC           // dept city
+  let AC = req.query.AC           // arrival city 
+  let DD = req.query.DD           // dept date
+  let RD = req.query.RD           // return date 
+  let TT = req.query.TT           // trip type (round or one way)
+  let PA = Number(req.query.PA)   // Passengers adult
+  let PC = Number(req.query.PC)   // Passengers child
+  let PI = Number(req.query.PI)   // Passengers infant
   let PAX = PA + PC + PI
   conn.query(
     "SELECT * FROM flights WHERE `from` = ? AND `to` = ? AND `date` = ? AND `booked` <= ? ORDER BY `date`", [DC, AC, DD, 50 - PAX],
@@ -88,7 +88,7 @@ exports.postBookFlight = function (req, res) {
 
 
 /**
- * GET /travel-details
+ * GET /travel-details/:id
  */
 exports.getTravelDetails = function (req, res) {
 

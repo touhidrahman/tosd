@@ -11,6 +11,7 @@ $(document).ready(function () {
       {id: id, pax: pax},
       function (result) {
         $('#statusFirst').removeClass('invisible')
+        $('#firstItnID').attr('href', '/travel-details/' + result.reservationId)
       }
     )
   })
@@ -27,6 +28,7 @@ $(document).ready(function () {
       {id: id, pax: pax},
       function (result) {
         $('#statusReturn').removeClass('invisible')
+        $('#returnItnID').attr('href', '/travel-details/' + result.reservationId)
       }
     )
   })
