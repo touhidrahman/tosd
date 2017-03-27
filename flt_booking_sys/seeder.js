@@ -7,7 +7,7 @@ var yr = 364
 var apts = ['FRA', 'MUC', 'TXL']
 
 // create necessary tables
-conn.query('CREATE TABLE IF NOT EXISTS flights (id INT(6) NOT NULL AUTO_INCREMENT, `from` CHAR(3) DEFAULT NULL, `to` CHAR(3) DEFAULT NULL, date DATE DEFAULT NULL, cap INT(3) DEFAULT NULL, booked INT(3) DEFAULT NULL, PRIMARY KEY(id))')
+conn.query('CREATE TABLE IF NOT EXISTS flights (id INT(6) NOT NULL AUTO_INCREMENT, dep CHAR(3) DEFAULT NULL, arr CHAR(3) DEFAULT NULL, dt DATE DEFAULT NULL, cap INT(3) DEFAULT NULL, booked INT(3) DEFAULT NULL, PRIMARY KEY(id))')
 
 conn.query('CREATE TABLE IF NOT EXISTS reservations (id INT(6) NOT NULL AUTO_INCREMENT, flight_id INT(6) DEFAULT NULL, pax INT(3) DEFAULT NULL, created DATETIME DEFAULT NULL, PRIMARY KEY(id))')
 
@@ -22,9 +22,9 @@ for (var i = 1; i <= yr; i++) {
     for (var k = 0; k < apts.length; k++) {
       if (j !== k) {
         let entry = {
-          from: apts[j],
-          to: apts[k],
-          date: resultDate,
+          dep: apts[j],
+          arr: apts[k],
+          dt: resultDate,
           cap: 50,
           booked: 0
         }
@@ -37,7 +37,7 @@ for (var i = 1; i <= yr; i++) {
 async.each(bigArray, function (entry, callback) {
   conn.query('INSERT INTO flights SET ?', entry, function (err, rows) {
     if (err) throw err
-    console.log("Writting 1 entry to DB: "+ entry.from + "-" + entry.to + " (" + entry.date + ")")
+    console.log("Writting 1 entry to DB: "+ entry.dep + "-" + entry.arr + " (" + entry.dt + ")")
     callback()
   })
 }, function(err){

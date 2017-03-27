@@ -51,6 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.get('/', HomeController.index);
 app.get('/search', HomeController.getFlights);
+app.get('/travel-details/:id', HomeController.getTravelDetails);
 app.post('/book', HomeController.postBookFlight);
 
 

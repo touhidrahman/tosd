@@ -32,18 +32,22 @@
 			<h3>First Travel</h3>
 			<table class="table table-responsive">
 				<tr>
+					<td>Flight No</td>
 					<td>From</td>
 					<td>To</td>
 					<td>Date</td>
 					<td>Booked</td>
+					<td>Capacity</td>
 					<td></td>
 				</tr>
 				{{#each data.rowsXtoY }}
 				<tr>
-					<td>{{from}}</td>
-					<td>{{to}}</td>
+					<td>{{id}}</td>
+					<td>{{dep}}</td>
+					<td>{{arr}}</td>
 					<td>{{dateFormat date "YYYY-MM-DD"}}</td>
 					<td>{{booked}}</td>
+					<td>{{cap}}</td>
 					<td>
 						<form action="/book" method="POST" id="firstBookForm">
 							<input type="hidden" name="id" value="{{id}}" />
@@ -58,7 +62,7 @@
 			<div class="alert alert-success invisible" id="statusFirst">
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 				<strong>Reservation confirmed!</strong> 
-				<a id="firstItnID" href="/travel-details/">Click here to display the itenarary</a>
+				<a id="firstItnID" target="_blank" href="/travel-details/">Click here to display the itenarary</a>
 			</div>
 
 		</div>
@@ -67,18 +71,22 @@
 			<h3>Return Travel</h3>
 			<table class="table table-responsive">
 				<tr>
+					<td>Flight No</td>
 					<td>From</td>
 					<td>To</td>
 					<td>Date</td>
 					<td>Booked</td>
+					<td>Capacity</td>
 					<td></td>
 				</tr>
 				{{#each data.rowsYtoX }}
 				<tr>
-					<td>{{from}}</td>
-					<td>{{to}}</td>
+					<td>{{id}}</td>
+					<td>{{dep}}</td>
+					<td>{{arr}}</td>
 					<td>{{dateFormat date "YYYY-MM-DD"}}</td>
 					<td>{{booked}}</td>
+					<td>{{cap}}</td>
 					<td>
 						<form action="/book" method="POST" id="returnBookForm">
 							<input type="hidden" name="id" value="{{id}}" />
@@ -92,7 +100,7 @@
 			<div class="alert alert-success invisible" id="statusReturn">
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 				<strong>Reservation confirmed!</strong> 
-				<a id="returnItnID" href="/travel-details/">Click here to display the itenarary</a>
+				<a id="returnItnID" target="_blank" href="/travel-details/">Click here to display the itenarary</a>
 			</div>
 		</div>
 		{{/if}}
