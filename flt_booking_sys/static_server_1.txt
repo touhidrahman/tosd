@@ -1,0 +1,36 @@
+
+/home/touhid/Codes/Study/TOSD/flt_booking_sys/server.js
+   1:1   warning  Unexpected var, use let or const instead                         no-var
+   2:1   warning  Unexpected var, use let or const instead                         no-var
+   3:1   warning  Unexpected var, use let or const instead                         no-var
+   4:1   warning  Unexpected var, use let or const instead                         no-var
+   5:1   warning  Unexpected var, use let or const instead                         no-var
+   6:1   warning  Unexpected var, use let or const instead                         no-var
+   7:1   warning  Unexpected var, use let or const instead                         no-var
+   8:1   warning  Unexpected var, use let or const instead                         no-var
+   9:1   warning  Unexpected var, use let or const instead                         no-var
+  10:1   warning  Unexpected var, use let or const instead                         no-var
+  11:1   warning  Unexpected var, use let or const instead                         no-var
+  17:1   error    All 'var' declarations must be at the top of the function scope  vars-on-top
+  17:1   warning  Unexpected var, use let or const instead                         no-var
+  19:1   error    All 'var' declarations must be at the top of the function scope  vars-on-top
+  19:1   warning  Unexpected var, use let or const instead                         no-var
+  22:1   error    All 'var' declarations must be at the top of the function scope  vars-on-top
+  22:1   warning  Unexpected var, use let or const instead                         no-var
+  25:11  warning  Unexpected unnamed method 'ifeq'                                 func-names
+  25:21  warning  Identifier name 'a' is too short (< 2)                           id-length
+  25:24  warning  Identifier name 'b' is too short (< 2)                           id-length
+  31:13  warning  Unexpected unnamed method 'toJSON'                               func-names
+  34:17  error    Unexpected require()                                             global-require
+  40:17  warning  Unexpected use of process.env                                    no-process-env
+  40:37  warning  No magic number: 3000                                            no-magic-numbers
+  50:11  warning  Unexpected use of process.env                                    no-process-env
+  66:11  warning  Unexpected unnamed function                                      func-names
+  66:36  warning  'next' is defined but never used                                 no-unused-vars
+  68:34  warning  No magic number: 500                                             no-magic-numbers
+  72:29  warning  Unexpected unnamed function                                      func-names
+  73:15  warning  Unexpected string concatenation                                  prefer-template
+  76:22  warning  Newline required at end of file but not found                    eol-last
+
+✖ 31 problems (4 errors, 27 warnings)
+

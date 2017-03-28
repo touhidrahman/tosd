@@ -1,0 +1,20 @@
+
+/home/touhid/Codes/Study/TOSD/flt_booking_sys/public/js/main.js
+   1:3   error    'document' is not defined               no-undef
+   1:19  warning  Unexpected unnamed function             func-names
+   2:23  warning  Trailing spaces not allowed             no-trailing-spaces
+   4:15  warning  Unexpected unnamed function             func-names
+   4:25  warning  Identifier name 'e' is too short (< 2)  id-length
+   7:24  warning  Strings must use singlequote            quotes
+   8:25  warning  Strings must use singlequote            quotes
+  14:7   warning  Unexpected unnamed function             func-names
+  16:39  warning  Unexpected string concatenation         prefer-template
+  23:16  warning  Unexpected unnamed function             func-names
+  23:26  warning  Identifier name 'e' is too short (< 2)  id-length
+  26:25  warning  Strings must use singlequote            quotes
+  27:26  warning  Strings must use singlequote            quotes
+  33:7   warning  Unexpected unnamed function             func-names
+  35:40  warning  Unexpected string concatenation         prefer-template
+
+✖ 15 problems (1 error, 14 warnings)
+

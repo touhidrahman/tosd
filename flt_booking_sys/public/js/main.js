@@ -7,8 +7,10 @@ $(document).ready(function () {
     let id = form.find("input[name='id']").val()
     let pax = form.find("input[name='pax']").val()
     $.post(
-      form.attr('action'),
-      {id: id, pax: pax},
+      form.attr('action'), {
+        id: id,
+        pax: pax
+      },
       function (result) {
         $('#statusFirst').removeClass('invisible')
         $('#firstItnID').attr('href', '/travel-details/' + result.reservationId)
@@ -24,8 +26,10 @@ $(document).ready(function () {
     let id = form2.find("input[name='id']").val()
     let pax = form2.find("input[name='pax']").val()
     $.post(
-      form2.attr('action'),
-      {id: id, pax: pax},
+      form2.attr('action'), {
+        id: id,
+        pax: pax
+      },
       function (result) {
         $('#statusReturn').removeClass('invisible')
         $('#returnItnID').attr('href', '/travel-details/' + result.reservationId)
